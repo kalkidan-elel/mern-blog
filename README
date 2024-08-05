@@ -28,4 +28,15 @@
      PS D:\REACT PROGRAMS\MERN-Blog> git remote add origin https://github.com/kalkidan-elel/mern-blog.git
      PS D:\REACT PROGRAMS\MERN-Blog> git branch -M main
      PS D:\REACT PROGRAMS\MERN-Blog> git push -u origin main
+
+     Now you can see the client folder file in github account with the specified commit.
+
+4) Create React Router Dom to route pages
+   - npm i react-router-dom
+   - And go to App.jsx and import the router dom and setup it.
+
+5) Create Header.jsx component and add in App.jsx
+6) Install flowbite --> npm i flowbite-react ---> and follow other instruction from
+   - https://flowbite-react.com/docs/guides/create-react-app
+
   
