@@ -11,4 +11,21 @@
                       @tailwind base;
                       @tailwind components;
                       @tailwind utilities;
-- 
+
+3) Open MERN-Blog folder and Initialize git --> git init   (This enables to controll our progaram with git)
+   Initialized empty Git repository in D:/REACT PROGRAMS/MERN-Blog/.git/
+   - PS D:\REACT PROGRAMS\MERN-Blog> git add .
+   - PS D:\REACT PROGRAMS\MERN-Blog> git commit -m "Install react js and tailwind css and create the first template"
+   Now go to your github account and create a new repository.
+   - Repository name: mern-blog
+   - Description: Mern blog using tailwind css
+   - Make it Public and Private
+   - Finally --> Create Repository
+
+   - After creating the repository it gives us the follwing code. Then, add in to MERN-Blog folder step by step
+   - …or push an existing repository from the command line
+
+     PS D:\REACT PROGRAMS\MERN-Blog> git remote add origin https://github.com/kalkidan-elel/mern-blog.git
+     PS D:\REACT PROGRAMS\MERN-Blog> git branch -M main
+     PS D:\REACT PROGRAMS\MERN-Blog> git push -u origin main
+  
