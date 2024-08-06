@@ -39,4 +39,6 @@
 6) Install flowbite --> npm i flowbite-react ---> and follow other instruction from
    - https://flowbite-react.com/docs/guides/create-react-app
 
-  
+----------------------------------------------------------------------------------------
+Redux Toolkit --> For global state. Which means that the signed in user information used for all pages
+until the user signed out.
