@@ -1,7 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRoutes from './routes/user.routes.js';
 
+//There is no userRoutes in ./routes/user.routes.js but it works well.
 dotenv.config();   //dotenv dependencies used to use the .env in the app
 
 mongoose
@@ -16,4 +18,6 @@ const app = express();
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000!");
-})
+});
+
+app.use('/api/user', userRoutes);
