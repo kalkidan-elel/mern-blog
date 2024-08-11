@@ -6,6 +6,7 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable, } from 'firebase
 import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 
 export default function UpdatePost() {
@@ -15,6 +16,7 @@ export default function UpdatePost() {
     const [formData, setFormData] = useState({});
     const [publishError, setPublishError] = useState(null);
 
+    const { currentUser } = useSelector((state) => state.user);
     const { postId } = useParams();
     const navigate = useNavigate();
 
@@ -76,8 +78,27 @@ export default function UpdatePost() {
     }
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await fetch(`/api/post/updatepost/${formData._id}/${currentUser._id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', },
+                body: JSON.stringify(formData),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                setPublishError(data.message);
+                return;
+            }
 
-    }
+            if (res.ok) {
+                setPublishError(null);
+                navigate(`/post/${data.slug}`);
+            }
+        } catch (error) {
+            setPublishError(error);
+        }
+    };
 
     return (
         <div className='p-3 max-w-3xl mx-auto min-h-screen'>
