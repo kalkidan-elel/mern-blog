@@ -1,14 +1,17 @@
-import { Alert, Button, Textarea } from 'flowbite-react';
-import React, { useEffect, useState } from 'react';
+import { Alert, Button, Modal, TextInput, Textarea } from 'flowbite-react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Comment from './Comment';
+import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
 export default function CommentSection({ postId }) {
     const { currentUser } = useSelector((state) => state.user);
     const [comment, setComment] = useState('');
     const [commentError, setCommentError] = useState(null);
     const [comments, setComments] = useState([]);
+
+    const navigate = useNavigate();
 
 
     const handleSubmit = async (e) => {
@@ -68,6 +71,16 @@ export default function CommentSection({ postId }) {
         }
     };
 
+    const handleEdit = async (comment, editedContent) => {
+        setComments(
+            comments.map((c) =>
+                c._id === comment._id ? { ...c, content: editedContent } : c
+            )
+        );
+    };
+
+
+
     return (
         <div className='max-w-2xl mx-auto w-full p-3'>
             {currentUser ?
@@ -119,15 +132,13 @@ export default function CommentSection({ postId }) {
                             key={comment._id}
                             comment={comment}
                             onLike={handleLike}
-                        // onEdit={handleEdit}
-                        // onDelete={(commentId) => {
-                        //     setShowModal(true);
-                        //     setCommentToDelete(commentId);
-                        // }}
+                            onEdit={handleEdit}
+
                         />
                     ))}
                 </>
             )}
+
 
         </div>
     )
