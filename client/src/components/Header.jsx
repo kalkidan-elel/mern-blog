@@ -47,6 +47,8 @@ export default function Header() {
         navigate(`/search?${searchQuery}`);
     };
 
+    //The Navbar is automatically set contents horizontally on the navbar. If the contents set with the 
+    //div, it sets vertically.
     return (
         <Navbar className='border-b-2'>
             <Link to='/' className='self-center whitespace-nowrap sm:text-xl font-semibold dark:text-white'>
@@ -62,17 +64,13 @@ export default function Header() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </form>
-            <Button className='w-12 h-10 lg:hidden' color='grey' pill><AiOutlineSearch /></Button>
+            <Button className='lg:hidden justify-center' color='grey' pill><AiOutlineSearch /></Button>
             <div className='flex gap-2 md:order-2'>
-                <Button className='w-12 h-10 hidden sm:inline' color='grey' pill onClick={() => dispatch(toggleTheme())}>
+                <Button className='w-12 h-10' color='grey' pill onClick={() => dispatch(toggleTheme())}>
                     {theme === 'light' ? <FaMoon /> : <FaSun />}
                 </Button>
                 {currentUser ? (
-                    <Dropdown
-                        arrowIcon={false}
-                        inline
-                        label={<Avatar alt='user' img={currentUser.profilePicture} rounded />}
-                    >
+                    <Dropdown arrowIcon={false} inline label={<Avatar alt='user' img={currentUser.profilePicture} rounded />}>
                         <Dropdown.Header>
                             <span className='block text-sm'>@{currentUser.username}</span>
                             <span className='block text-sm font-medium truncate'>{currentUser.email}</span>

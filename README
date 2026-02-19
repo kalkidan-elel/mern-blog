@@ -1,22 +1,25 @@
-1) Install react js and Tailwind css
+1. Install react js and Tailwind css
+
 - npm create vite@latest --> folder name "client" --> React --> JavaScript + SWC
 - cd client --> npm install --> Now you can run the app
 
-2) Search Tailwind css installation steps from --> https://tailwindcss.com/docs/guides/vite
+2. Search Tailwind css installation steps from --> https://tailwindcss.com/docs/guides/vite
+
 - Install --> npm install -D tailwindcss postcss autoprefixer
 - Initialize --> npx tailwindcss init -p
-- Open tailwind.config.js  and change all the file in it with the new file from the tailwind website.
+- Open tailwind.config.js and change all the file in it with the new file from the tailwind website.
 - Copy and paste the three lines of code form index.css (from the website) to the client file folder index.css
-  src --> index.css --> 
-                      @tailwind base;
-                      @tailwind components;
-                      @tailwind utilities;
+  src --> index.css -->
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-3) Open MERN-Blog folder and Initialize git --> git init   (This enables to controll our progaram with git)
+3. Open MERN-Blog folder and Initialize git --> git init (This enables to controll our progaram with git)
    Initialized empty Git repository in D:/REACT PROGRAMS/MERN-Blog/.git/
+
    - PS D:\REACT PROGRAMS\MERN-Blog> git add .
    - PS D:\REACT PROGRAMS\MERN-Blog> git commit -m "Install react js and tailwind css and create the first template"
-   Now go to your github account and create a new repository.
+     Now go to your github account and create a new repository.
    - Repository name: mern-blog
    - Description: Mern blog using tailwind css
    - Make it Public and Private
@@ -31,14 +34,21 @@
 
      Now you can see the client folder file in github account with the specified commit.
 
-4) Create React Router Dom to route pages
+4. Create React Router Dom to route pages
+
    - npm i react-router-dom
    - And go to App.jsx and import the router dom and setup it.
 
-5) Create Header.jsx component and add in App.jsx
-6) Install flowbite --> npm i flowbite-react ---> and follow other instruction from
+5. Create Header.jsx component and add in App.jsx
+6. Install flowbite --> npm i flowbite-react ---> and follow other instruction from
    - https://flowbite-react.com/docs/guides/create-react-app
 
-----------------------------------------------------------------------------------------
+---
+
 Redux Toolkit --> For global state. Which means that the signed in user information used for all pages
 until the user signed out.
+
+## To start the website
+
+npm run dev --> for client
+npm start --> for api
